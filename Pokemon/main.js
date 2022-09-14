@@ -1,4 +1,4 @@
-const CARDS = 3;
+const CARDS = 6;
 
 //Que es una promesa y como la hacemos:
 // Algo que puede darse o no, pero que la API yo te digo que te voy a dar lo que vos me pedis
