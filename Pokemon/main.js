@@ -12,8 +12,11 @@ const CARDS = 3;
 // LUEGO GRACIAS A ESO ME PASA LOS VALORES Y LOS DATOS QUE NECESITO PARA PODER TRABAJAR COMO EL ID, EL NOMBRE Y MÁS 
 //ME PASA UN OBJETO DIGAMOS. 
 
+let idPokemones = []; //Array de ID para luego verificar si hay repetidos
+
 for(let i = 1; i <= CARDS; i++){
     let id = getRandomId(210);
+    idPokemones.push(id);
     //console.log(`Este es el ID ${id}`);
     searchPokemonById(id);
 }
@@ -63,14 +66,43 @@ async function searchPokemonById(id) {
         </div>`
     })
 
+    //Seleccionamos la imagen de la clase, para poder hacer un evento que se pueda agarrar la imagen y poder volcarla luego en la caja rectangular donde va a estar alojado el ID del nombre de la imagen 
     let pokemons = document.querySelectorAll('.image');
     pokemons = [...pokemons];
-    console.log(pokemons);
     pokemons.forEach(pokemon => {
         pokemon.addEventListener('dragstart' , event=>{
-            console.log(event);
+            event.dataTransfer.setData('text' , event.target.id) //Setear que se va a transferir a traves del setData , por un texto cuando haga el evento y se va a soltar el ID
+            //CAPTURAMOS EL ID CON event.target.id Y LO PASO COMO DATATRANSFER.
         })
     })
+
+    let wrongMsg = document.querySelector('.wrong');
+    let points = 0;
+    let names = document.querySelectorAll('.names');
+    names = [...names]
+    names.forEach(name => {
+        name.addEventListener('dragover', event=>{ //Capturo el evento para trabajarlo y prevenir que sea un loop infinito
+            event.preventDefault() //Muy importante para poder hacer el drop, sino me va a hacer el drop infinito, detenemos el evento y prevenimos. 
+        })
+        name.addEventListener('drop', event=>{
+            const draggableElementData = event.dataTransfer.getData('text');
+            let pokemonElement = document.querySelector(`#${draggableElementData}`)
+            if(event.target.innerHTML == draggableElementData) {
+                points +=1;
+                event.target.innerHTML = '';
+                event.target.appendChild(pokemonElement);
+                wrongMsg.innerText = '';
+                name.style.border = "3px dashed green" //Cambio el color del border cuando estan todos bien. 
+
+                if (points == CARDS){
+                    draggableElements.innerHTML = '<p class="win">¡Felicitaciones ganaste!</p>'
+                }
+            }else{
+                wrongMsg.innerText = 'Ups!';
+            }
+        })
+    })
+
 }
 
 
