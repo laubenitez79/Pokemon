@@ -98,7 +98,7 @@ async function searchPokemonById(id) {
                     draggableElements.innerHTML = '<p class="win">¡Felicitaciones ganaste!</p>'
                 }
             }else{
-                wrongMsg.innerText = 'Ups!';
+                wrongMsg.innerText = '¡Pokemon equivocado!';
             }
         })
     })
