@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* FUENTE QUE SE UTILIZA EN GENERAL*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 , h2 , h3 {
+    text-align: center;
+}
+
+body{
+    font-family: 'Press Start 2P', cursive;
+    background-color: #88DD22;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%2388DD22' cx='50' cy='0' r='50'/%3E%3Cg fill='%2393d807' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%239dd300' cx='50' cy='100' r='50'/%3E%3Cg fill='%23a6cd00' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23afc800' cx='50' cy='200' r='50'/%3E%3Cg fill='%23b7c200' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23bfbc00' cx='50' cy='300' r='50'/%3E%3Cg fill='%23c6b600' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23cdb000' cx='50' cy='400' r='50'/%3E%3Cg fill='%23d3a900' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%23daa300' cx='50' cy='500' r='50'/%3E%3Cg fill='%23df9c00' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%23e49500' cx='50' cy='600' r='50'/%3E%3Cg fill='%23e98e00' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ee8700' cx='50' cy='700' r='50'/%3E%3Cg fill='%23f27f00' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23f57700' cx='50' cy='800' r='50'/%3E%3Cg fill='%23f86f00' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23fb6706' cx='50' cy='900' r='50'/%3E%3Cg fill='%23fd5e17' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23FF5522' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.main-container {
+    /*border: 2px solid white;*/
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.draggable-elements , .droppable-elements {
+    /*border: 2px solid black;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 23px;
+    min-height: 140px;
+}
+
+.text-names {
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.names {
+    border: 3px dashed black;
+    color: blueviolet;
+    min-width: 100px;
+    padding: 0 10px;
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+
+.image {
+    width: 120px;
+}
+
+.wrong {
+    text-align: center;
+    font-size: 2em;
+    color: white;
+}
+
+.win {
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    margin: 40px;
+}
+
+.winner {
+    display: block;
+    text-align: center;
+}
+
+.retry {
+    color: white;
+    text-decoration: none;
+}
+.retry:hover {
+    text-decoration:line-through;
+}
