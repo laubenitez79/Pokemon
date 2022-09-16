@@ -36,12 +36,18 @@ body{
     min-height: 140px;
 }
 
+.text-names {
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
 .names {
     border: 3px dashed black;
     color: blueviolet;
     min-width: 100px;
     padding: 0 10px;
-    height: 100px;
+    height: 100%;
     display: grid;
     place-content: center;
 }
@@ -60,5 +66,18 @@ body{
     text-align: center;
     font-size: 2em;
     color: white;
-    margin-top: 70px;
+    margin: 40px;
+}
+
+.winner {
+    display: block;
+    text-align: center;
+}
+
+.retry {
+    color: white;
+    text-decoration: none;
+}
+.retry:hover {
+    text-decoration:line-through;
 }

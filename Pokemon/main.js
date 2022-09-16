@@ -13,6 +13,7 @@ const CARDS = 6;
 //ME PASA UN OBJETO DIGAMOS. 
 
 let idPokemones = []; //Array de ID para luego verificar si hay repetidos
+let repetido = false; 
 
 for(let i = 1; i <= CARDS; i++){
     let id = getRandomId(210);
@@ -21,6 +22,25 @@ for(let i = 1; i <= CARDS; i++){
     searchPokemonById(id);
 }
 
+for(let i = 1; i <= idPokemones.length; i++){
+    for(let j = 1; j <= idPokemones.length; j++){
+        if(idPokemones[i] == idPokemones[j] && i != j) {
+            repetido = true;
+            let elementoRemovido = []
+            elementoRemovido.push(idPokemones.splice(idPokemones[i]));
+            console.log(elementoRemovido);
+            //let idNuevo = getRandomId(210);
+            //idPokemones.splice(idPokemones[i], 0 , idPokemones[idNuevo] )
+            let estaRepetido = idPokemones[i] 
+            let estaRepetido2 = idPokemones[j]
+            console.log(estaRepetido);
+            console.log(estaRepetido2);
+        }
+    }
+}
+
+console.log(idPokemones);
+console.log(repetido); 
 
 function getRandomId(max){
     //Valor random para luego sacar el valor random de un pokemon
@@ -62,7 +82,7 @@ async function searchPokemonById(id) {
         //nombrePokemon = nombrePokemon.sort(()=>Math.random()-0.5)
         droppableElements.innerHTML += `
         <div class="names">
-            <p>${name}</p>
+            <p class="text-names">${name}</p>
         </div>`
     })
 
@@ -95,7 +115,11 @@ async function searchPokemonById(id) {
                 name.style.border = "3px dashed green" //Cambio el color del border cuando estan todos bien. 
 
                 if (points == CARDS){
-                    draggableElements.innerHTML = '<p class="win">¡Felicitaciones ganaste!</p>'
+                    draggableElements.innerHTML = `
+                    <div class="winner">
+            <p class="win">¡Felicitaciones ganaste!</p>
+            <a class="retry" href="">Juega denuevo</a>
+        </div>`
                 }
             }else{
                 wrongMsg.innerText = '¡Pokemon equivocado!';
